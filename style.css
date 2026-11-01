@@ -1,0 +1,1548 @@
+
+/* =================================
+   WEBLEARN - CLEAN EDUCATION DESIGN
+================================= */
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --surface-soft: #f1f5f9;
+
+    --text: #172033;
+    --text-body: #334155;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+
+    --html-color: #ea580c;
+    --css-color: #2563eb;
+    --js-color: #ca8a04;
+
+    --html-soft: #fff7ed;
+    --css-soft: #eff6ff;
+    --js-soft: #fefce8;
+
+    --code-bg: #172033;
+    --editor-bg: #1e293b;
+    --editor-gutter: #1a2436;
+
+    --radius: 14px;
+    --shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    --shadow-hover: 0 12px 30px rgba(15, 23, 42, 0.09);
+
+    --header-height: 72px;
+
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", Consolas, Monaco,
+                 "Courier New", monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+::selection {
+    background: rgba(37, 99, 235, 0.18);
+}
+
+/* Fokus keyboard yang jelas (aksesibilitas) */
+
+:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.45);
+    outline-offset: 2px;
+}
+
+.CodeMirror :focus-visible {
+    outline: none;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+
+    color: var(--text);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.logo::before {
+    content: "</>";
+
+    display: grid;
+    place-items: center;
+
+    width: 34px;
+    height: 34px;
+    margin-right: 10px;
+
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6, var(--primary-dark));
+
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 9px 16px;
+    border-radius: 8px;
+
+    transition: color 0.2s, background 0.2s;
+}
+
+.header nav a:hover,
+.header nav a.active {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+/* =================================
+   SPA PAGE SYSTEM
+================================= */
+
+/*
+   JavaScript harus menambahkan class active
+   pada halaman yang sedang ditampilkan.
+*/
+
+.page {
+    display: none;
+    min-height: calc(100vh - var(--header-height));
+}
+
+.page.active {
+    display: block;
+    animation: pageFade 0.35s ease;
+}
+
+#page-materi.active {
+    display: flex;
+}
+
+@keyframes pageFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* =================================
+   BUTTON
+================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    background: var(--primary);
+    color: white;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.22);
+
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* =================================
+   HOME / HERO
+================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 490px;
+    padding: 90px 10%;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(59, 130, 246, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 8% 95%,
+            rgba(234, 88, 12, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(rgba(37, 99, 235, 0.14) 1px, transparent 1px),
+        linear-gradient(120deg, #eff6ff, #ffffff);
+
+    background-size: auto, auto, 24px 24px, auto;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 650px;
+}
+
+.subtitle {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-content > p:not(.subtitle) {
+    max-width: 530px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    font-size: 16px;
+}
+
+/* Hiasan jendela kode di sisi kanan (hanya layar lebar) */
+
+.hero::before,
+.hero::after {
+    display: none;
+
+    position: absolute;
+    right: 9%;
+    top: calc(50% - 130px);
+
+    width: 340px;
+    height: 260px;
+}
+
+.hero::before {
+    content: "";
+    z-index: 2;
+    height: 46px;
+
+    background:
+        radial-gradient(circle at 26px 24px, #ef4444 5px, transparent 5.5px),
+        radial-gradient(circle at 46px 24px, #eab308 5px, transparent 5.5px),
+        radial-gradient(circle at 66px 24px, #22c55e 5px, transparent 5.5px);
+}
+
+.hero::after {
+    content: "<h1>Halo Dunia!</h1>\A \A h1 {\A   color: #2563eb;\A }\A \A alert('Halo!');";
+    z-index: 1;
+
+    padding: 62px 28px 0;
+
+    background: var(--code-bg);
+    color: #cbd5e1;
+
+    border-radius: 18px;
+    font: 13.5px/1.85 var(--font-mono);
+    white-space: pre;
+
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.22);
+}
+
+@media (min-width: 1180px) {
+
+    .hero::before,
+    .hero::after {
+        display: block;
+    }
+
+}
+
+/* =================================
+   HOME MATERIAL CARDS
+================================= */
+
+.materi {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    letter-spacing: -0.7px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.materi-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.materi-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: var(--surface);
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.materi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Ikon bahasa di tiap kartu */
+
+.materi-card::before {
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.materi-card.html::before {
+    content: "</>";
+    background: var(--html-soft);
+    color: var(--html-color);
+}
+
+.materi-card.css::before {
+    content: "{ }";
+    background: var(--css-soft);
+    color: var(--css-color);
+}
+
+.materi-card.js::before {
+    content: "JS";
+    background: var(--js-soft);
+    color: var(--js-color);
+}
+
+.materi-card h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.materi-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.materi-card a {
+    margin-top: auto;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.materi-card a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.materi-card.html {
+    border-top: 4px solid var(--html-color);
+}
+
+.materi-card.html h3,
+.materi-card.html a {
+    color: var(--html-color);
+}
+
+.materi-card.css {
+    border-top: 4px solid var(--css-color);
+}
+
+.materi-card.css h3,
+.materi-card.css a {
+    color: var(--css-color);
+}
+
+.materi-card.js {
+    border-top: 4px solid var(--js-color);
+}
+
+.materi-card.js h3,
+.materi-card.js a {
+    color: var(--js-color);
+}
+
+.materi .section-title:last-child {
+    margin-top: 65px;
+}
+
+.materi .section-title .btn {
+    margin-top: 20px;
+}
+
+/* =================================
+   LEARNING PAGE / SIDEBAR
+================================= */
+
+.learning-layout {
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 270px;
+    flex-shrink: 0;
+
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+
+    position: sticky;
+    top: var(--header-height);
+
+    padding: 25px 16px 40px;
+
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+}
+
+.sidebar h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+}
+
+.sidebar-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+
+    margin: 22px 10px 8px;
+}
+
+.sidebar-label::before {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    background: var(--border-strong);
+}
+
+/* Warna titik: HTML, CSS, JavaScript */
+
+.sidebar-label:nth-of-type(1)::before {
+    background: var(--html-color);
+}
+
+.sidebar-label:nth-of-type(2)::before {
+    background: var(--css-color);
+}
+
+.sidebar-label:nth-of-type(3)::before {
+    background: var(--js-color);
+}
+
+.sidebar a {
+    display: block;
+
+    text-decoration: none;
+    color: #475569;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    padding: 8px 12px;
+    margin: 2px 0;
+
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar a:hover {
+    background: var(--surface-soft);
+    color: var(--text);
+}
+
+.sidebar a.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+
+    box-shadow: inset 3px 0 0 var(--primary);
+}
+
+/* Scrollbar sidebar */
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 10px;
+}
+
+/* =================================
+   LESSON CONTENT
+================================= */
+
+.lesson-content {
+    flex: 1;
+    min-width: 0;
+
+    /* Lebar baris dibatasi agar nyaman dibaca */
+    max-width: 900px;
+    padding: 45px clamp(20px, 5vw, 65px);
+    margin: 0 auto;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #eff6ff, #ffffff);
+
+    padding: 35px;
+    border: 1px solid #dbeafe;
+    border-radius: var(--radius);
+
+    margin-bottom: 35px;
+}
+
+.welcome h1 {
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+}
+
+.welcome > p:last-child {
+    color: var(--text-secondary);
+    max-width: 650px;
+}
+
+/* =================================
+   LESSON SECTION
+================================= */
+
+.lesson {
+    background: var(--surface);
+
+    padding: 36px 40px;
+    margin-bottom: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    scroll-margin-top: 100px;
+
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Materi yang sedang dituju dari sidebar */
+
+.lesson:target {
+    border-color: #bfdbfe;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08), var(--shadow);
+}
+
+.lesson h2 {
+    font-size: 26px;
+    line-height: 1.3;
+    letter-spacing: -0.6px;
+
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.lesson h3 {
+    font-size: 17px;
+    margin: 26px 0 10px;
+}
+
+.lesson p {
+    color: var(--text-body);
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 15px;
+}
+
+.lesson ul,
+.lesson ol {
+    padding-left: 24px;
+    margin: 12px 0 20px;
+}
+
+.lesson li {
+    color: var(--text-body);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.lesson li::marker {
+    color: var(--primary);
+}
+
+.lesson li b,
+.lesson li strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* Kode di dalam kalimat */
+
+.lesson :not(pre) > code {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+
+    padding: 2px 6px;
+    border: 1px solid #dbeafe;
+    border-radius: 6px;
+
+    font-family: var(--font-mono);
+    font-size: 0.87em;
+}
+
+/* Category labels */
+
+.category {
+    display: inline-block;
+
+    padding: 5px 11px;
+    margin-bottom: 13px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.html-tag {
+    color: #c2410c;
+    background: var(--html-soft);
+}
+
+.css-tag {
+    color: #1d4ed8;
+    background: var(--css-soft);
+}
+
+.js-tag {
+    color: #a16207;
+    background: var(--js-soft);
+}
+
+/* =================================
+   CODE EXAMPLES
+================================= */
+
+.lesson pre {
+    /* Titik tiga bergaya jendela editor di pojok kiri atas */
+    background-color: var(--code-bg);
+    background-image:
+        radial-gradient(circle at 20px 19px, #ef4444 4px, transparent 4.5px),
+        radial-gradient(circle at 38px 19px, #eab308 4px, transparent 4.5px),
+        radial-gradient(circle at 56px 19px, #22c55e 4px, transparent 4.5px);
+    background-repeat: no-repeat;
+
+    color: #e2e8f0;
+
+    padding: 36px 22px 20px;
+    margin: 18px 0 22px;
+
+    border: 1px solid #0f172a;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+
+    overflow-x: auto;
+    line-height: 1.75;
+
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+.lesson pre code {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+}
+
+.lesson pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.lesson pre::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* =================================
+   RESULT BOX
+================================= */
+
+.result {
+    padding: 22px 24px;
+    margin-top: 22px;
+
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+}
+
+.result > strong:first-child {
+    display: block;
+    color: var(--primary);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.result h1,
+.result h2,
+.result h3 {
+    margin: 10px 0;
+}
+
+.result > h3:first-child {
+    margin-top: 0;
+}
+
+.result p:last-child {
+    margin-bottom: 0;
+}
+
+.result blockquote {
+    margin: 12px 0;
+    padding: 10px 16px;
+
+    background: var(--surface);
+    color: var(--text-secondary);
+
+    border-left: 4px solid var(--border-strong);
+    border-radius: 0 8px 8px 0;
+}
+
+.result hr {
+    margin: 14px 0;
+    border: none;
+    border-top: 1px solid var(--border-strong);
+}
+
+.result mark {
+    background: #fef08a;
+    color: var(--text);
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+.result table {
+    margin: 6px 0 4px;
+    background: var(--surface);
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.result th,
+.result td {
+    padding: 9px 18px;
+    border: 1px solid var(--border-strong);
+    text-align: left;
+}
+
+.result th {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* Contoh block dan inline */
+
+.result .kotak-demo {
+    margin: 8px 4px 8px 0;
+    padding: 10px 14px;
+
+    background: var(--surface);
+    border: 2px dashed var(--border-strong);
+    border-radius: 6px;
+}
+
+.result button {
+    padding: 10px 17px;
+
+    background: var(--primary);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    margin-top: 12px;
+
+    transition: background 0.2s;
+}
+
+.result button:hover {
+    background: var(--primary-dark);
+}
+
+#hasil-event {
+    margin: 14px 0 0;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+#hasil-event:empty {
+    display: none;
+}
+
+/* =================================
+   LESSON NAVIGATION
+================================= */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin: 35px 0;
+}
+
+/* Tombol "kembali" dibuat lebih tenang daripada tombol utama */
+
+.lesson-navigation .btn:first-child {
+    background: var(--surface);
+    color: var(--text-body);
+
+    border: 1px solid var(--border-strong);
+    box-shadow: none;
+}
+
+.lesson-navigation .btn:first-child:hover {
+    background: var(--surface-soft);
+    box-shadow: none;
+}
+
+/* =================================
+   CODE EDITOR PAGE
+================================= */
+
+.editor-page {
+    padding: 35px 5%;
+}
+
+.editor-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.editor-heading h1 {
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.editor-heading p:not(.subtitle) {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.save-status {
+    margin-top: 8px;
+    color: #16a34a !important;
+    font-size: 12px !important;
+}
+
+.save-status::before {
+    content: "●";
+    margin-right: 6px;
+    font-size: 8px;
+    vertical-align: middle;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editor-actions button {
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.editor-actions button:active {
+    transform: scale(0.97);
+}
+
+.reset-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.reset-btn:hover {
+    background: var(--border-strong);
+}
+
+.run-btn {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+.run-btn:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* =================================
+   EDITOR WORKSPACE
+================================= */
+
+.workspace {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.editor-panel {
+    min-width: 0;
+    overflow: hidden;
+
+    background: var(--editor-bg);
+
+    border: 1px solid #334155;
+    border-radius: 10px;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.editor-panel:focus-within {
+    border-color: #475569;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 11px 15px;
+
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+
+    background: #273449;
+}
+
+.panel-header span:last-child {
+    color: #94a3b8;
+    font-weight: 400;
+    font-family: var(--font-mono);
+}
+
+.html-header {
+    border-top: 3px solid #f97316;
+}
+
+.css-header {
+    border-top: 3px solid #3b82f6;
+}
+
+.js-header {
+    border-top: 3px solid #eab308;
+}
+
+.html-header span:first-child {
+    color: #fdba74;
+}
+
+.css-header span:first-child {
+    color: #93c5fd;
+}
+
+.js-header span:first-child {
+    color: #fde047;
+}
+
+/* =================================
+   CODEMIRROR
+================================= */
+
+/*
+   style.css dimuat SEBELUM CSS CodeMirror dan tema, sehingga aturan
+   dengan selector sederhana (.CodeMirror saja) kalah. Selector di
+   bawah dibuat lebih spesifik agar tinggi, font, dan warna editor
+   benar-benar berlaku dan menyatu dengan panelnya.
+*/
+
+.editor-panel .CodeMirror.CodeMirror {
+    height: 320px;
+    width: 100%;
+
+    background: var(--editor-bg);
+
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.editor-panel .CodeMirror .CodeMirror-gutters {
+    background: var(--editor-gutter);
+    border-right: 1px solid #334155;
+}
+
+.editor-panel .CodeMirror .CodeMirror-linenumber {
+    color: #64748b;
+}
+
+.editor-panel .CodeMirror .CodeMirror-cursor {
+    border-left: 2px solid white;
+}
+
+.editor-panel .CodeMirror .CodeMirror-selected {
+    background: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* =================================
+   PREVIEW
+================================= */
+
+.preview-section {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 20px;
+
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+
+.preview-header h2 {
+    font-size: 16px;
+}
+
+.preview-header span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+#preview {
+    display: block;
+
+    width: 100%;
+    height: 400px;
+
+    background: white;
+    border: none;
+}
+
+/* =================================
+   CONSOLE
+================================= */
+
+.console-section {
+    background: #111827;
+
+    border: 1px solid #334155;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.console-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 18px;
+
+    background: var(--editor-bg);
+    border-bottom: 1px solid #334155;
+}
+
+.console-header h2 {
+    color: white;
+    font-size: 14px;
+}
+
+.console-header button {
+    padding: 6px 12px;
+
+    color: #cbd5e1;
+    background: #334155;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+
+    transition: background 0.2s;
+}
+
+.console-header button:hover {
+    background: #475569;
+}
+
+#consoleOutput {
+    min-height: 100px;
+    max-height: 250px;
+
+    overflow-y: auto;
+    padding: 15px;
+
+    color: #cbd5e1;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.console-empty {
+    color: #64748b;
+}
+
+.console-log {
+    padding: 5px 0;
+    border-bottom: 1px solid #273449;
+}
+
+.console-log::before {
+    content: "›";
+    margin-right: 8px;
+    color: #64748b;
+}
+
+.console-error {
+    color: #f87171;
+}
+
+.console-error::before {
+    content: "✕";
+    color: inherit;
+}
+
+.console-warn {
+    color: #fbbf24;
+}
+
+.console-warn::before {
+    content: "!";
+    color: inherit;
+    font-weight: 700;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    padding: 23px;
+    text-align: center;
+
+    color: var(--text-secondary);
+    background: white;
+
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+}
+
+/* =================================
+   RESPONSIVE TABLET
+================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 230px;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-panel .CodeMirror.CodeMirror {
+        height: 260px;
+    }
+
+    .materi-container {
+        gap: 15px;
+    }
+
+    .lesson {
+        padding: 30px 28px;
+    }
+
+}
+
+/* =================================
+   RESPONSIVE MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        height: auto;
+        min-height: 65px;
+        padding: 12px 5%;
+
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .logo::before {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .header nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 3px;
+    }
+
+    .header nav a {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .page {
+        min-height: calc(100vh - 100px);
+    }
+
+    .hero {
+        min-height: 400px;
+        padding: 65px 7%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .materi {
+        padding: 50px 6%;
+    }
+
+    .materi-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    /* Sidebar menjadi bagian atas di mobile */
+
+    #page-materi.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        top: auto;
+
+        width: 100%;
+        height: auto;
+        max-height: 260px;
+
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+
+        padding: 18px;
+    }
+
+    .sidebar h3 {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-label {
+        margin-top: 15px;
+    }
+
+    .lesson-content {
+        width: 100%;
+        padding: 25px 15px;
+    }
+
+    .welcome {
+        padding: 25px 20px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .lesson {
+        padding: 24px 18px;
+    }
+
+    .lesson h2 {
+        font-size: 21px;
+    }
+
+    .lesson pre {
+        padding: 36px 16px 16px;
+    }
+
+    .lesson pre code {
+        font-size: 12.5px;
+    }
+
+    .result {
+        padding: 18px 16px;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+    }
+
+    .lesson-navigation .btn {
+        width: 100%;
+    }
+
+    /* Editor mobile */
+
+    .editor-page {
+        padding: 25px 15px;
+    }
+
+    .editor-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .editor-heading h1 {
+        font-size: 26px;
+    }
+
+    .editor-actions {
+        width: 100%;
+    }
+
+    .editor-actions button {
+        flex: 1;
+    }
+
+    .editor-panel .CodeMirror.CodeMirror {
+        height: 250px;
+        font-size: 12px;
+    }
+
+    #preview {
+        height: 320px;
+    }
+
+    .preview-header {
+        padding: 12px;
+    }
+
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 380px) {
+
+    .header nav a {
+        padding: 6px;
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .editor-actions button {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+}
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
