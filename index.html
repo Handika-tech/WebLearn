@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebLearn - Belajar Coding</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+
+    <!-- Tambahan kecil untuk tabel & contoh hasil pada materi baru -->
+    <style>
+        .result table { border-collapse: collapse; margin: 10px 0; }
+        .result th, .result td { border: 1px solid #94a3b8; padding: 6px 12px; }
+        .result .kotak-demo { border: 2px dashed #94a3b8; padding: 10px; margin: 8px 0; }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <a href="#home" class="logo" data-page-link="home">
+        Web<span>Learn</span>
+    </a>
+
+    <nav>
+        <a href="#home" data-page-link="home">Beranda</a>
+        <a href="#materi" data-page-link="materi">Materi</a>
+        <a href="#editor" data-page-link="editor">Code Editor</a>
+    </nav>
+</header>
+
+
+<!-- ================= BERANDA ================= -->
+
+<main id="page-home" class="page">
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <p class="subtitle">
+                PLATFORM BELAJAR PEMROGRAMAN WEB
+            </p>
+
+            <h1>
+                Belajar Coding<br>
+                <span>Dari Nol.</span>
+            </h1>
+
+            <p>
+                Pelajari HTML, CSS, dan JavaScript
+                dengan materi yang mudah dipahami
+                dan praktik langsung.
+            </p>
+
+            <a href="#materi"
+               class="btn"
+               data-page-link="materi">
+                Mulai Belajar
+            </a>
+
+        </div>
+    </section>
+
+    <section class="materi">
+
+        <div class="section-title">
+            <h2>Materi Pembelajaran</h2>
+            <p>
+                Pilih bahasa pemrograman yang ingin kamu pelajari.
+            </p>
+        </div>
+
+        <div class="materi-container">
+
+            <article class="materi-card html">
+                <h3>HTML</h3>
+                <p>
+                    Pelajari struktur dan elemen dasar website.
+                </p>
+                <a href="#html" data-lesson-link>
+                    Pelajari HTML →
+                </a>
+            </article>
+
+            <article class="materi-card css">
+                <h3>CSS</h3>
+                <p>
+                    Pelajari cara mendesain dan mempercantik website.
+                </p>
+                <a href="#css" data-lesson-link>
+                    Pelajari CSS →
+                </a>
+            </article>
+
+            <article class="materi-card js">
+                <h3>JavaScript</h3>
+                <p>
+                    Pelajari logika dan interaksi pada website.
+                </p>
+                <a href="#javascript" data-lesson-link>
+                    Pelajari JavaScript →
+                </a>
+            </article>
+
+        </div>
+
+        <div class="section-title">
+            <h2>Praktik Langsung</h2>
+            <p>
+                Coba tulis kode HTML, CSS, dan JavaScript
+                menggunakan editor interaktif.
+            </p>
+
+            <a href="#editor"
+               class="btn"
+               data-page-link="editor">
+                Coba Code Editor
+            </a>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= HALAMAN MATERI ================= -->
+
+<div id="page-materi" class="page learning-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h3>Materi Pembelajaran</h3>
+
+        <p class="sidebar-label">HTML</p>
+
+        <a href="#html" data-lesson-link>Pengenalan HTML</a>
+        <a href="#struktur-html" data-lesson-link>Struktur HTML</a>
+        <a href="#elemen-html" data-lesson-link>Tag dan Elemen</a>
+        <a href="#heading" data-lesson-link>Heading dan Paragraf</a>
+        <a href="#teks" data-lesson-link>Elemen Teks</a>
+        <a href="#link-gambar" data-lesson-link>Link dan Gambar</a>
+        <a href="#list" data-lesson-link>List dan Tabel</a>
+        <a href="#atribut" data-lesson-link>Atribut Global</a>
+        <a href="#block-inline" data-lesson-link>Block dan Inline</a>
+        <a href="#form" data-lesson-link>Form HTML</a>
+        <a href="#input-form" data-lesson-link>Tipe Input Form</a>
+        <a href="#semantic" data-lesson-link>Semantic HTML</a>
+        <a href="#media" data-lesson-link>Audio dan Video</a>
+        <a href="#iframe" data-lesson-link>Iframe</a>
+        <a href="#entity" data-lesson-link>Entity dan Komentar</a>
+        <a href="#meta" data-lesson-link>Meta Tag dan Favicon</a>
+        <a href="#link-css-js" data-lesson-link>Menghubungkan CSS dan JS</a>
+        <a href="#path" data-lesson-link>Path File</a>
+
+        <p class="sidebar-label">CSS</p>
+
+        <a href="#css" data-lesson-link>Pengenalan CSS</a>
+        <a href="#selector" data-lesson-link>CSS Selector</a>
+        <a href="#warna" data-lesson-link>Color dan Background</a>
+        <a href="#tipografi" data-lesson-link>Tipografi</a>
+        <a href="#satuan" data-lesson-link>Satuan CSS</a>
+        <a href="#box-model" data-lesson-link>Box Model</a>
+        <a href="#display" data-lesson-link>Display</a>
+        <a href="#flexbox" data-lesson-link>Flexbox</a>
+        <a href="#grid" data-lesson-link>CSS Grid</a>
+        <a href="#position" data-lesson-link>Position</a>
+        <a href="#zindex" data-lesson-link>Z-index dan Overflow</a>
+        <a href="#responsive" data-lesson-link>Responsive Design</a>
+        <a href="#pseudo" data-lesson-link>Pseudo-class</a>
+        <a href="#animation" data-lesson-link>Animation</a>
+        <a href="#css-variable" data-lesson-link>CSS Variable</a>
+
+        <p class="sidebar-label">JavaScript</p>
+
+        <a href="#javascript" data-lesson-link>Pengenalan JavaScript</a>
+        <a href="#variabel" data-lesson-link>Variabel</a>
+        <a href="#tipe-data" data-lesson-link>Tipe Data</a>
+        <a href="#operator" data-lesson-link>Operator</a>
+        <a href="#template-literal" data-lesson-link>Template Literal</a>
+        <a href="#condition" data-lesson-link>Conditional</a>
+        <a href="#switch" data-lesson-link>Switch</a>
+        <a href="#loop" data-lesson-link>Looping</a>
+        <a href="#while" data-lesson-link>While dan Do While</a>
+        <a href="#function" data-lesson-link>Function</a>
+        <a href="#arrow" data-lesson-link>Arrow Function</a>
+        <a href="#array" data-lesson-link>Array</a>
+        <a href="#array-method" data-lesson-link>Method Array</a>
+        <a href="#object" data-lesson-link>Object</a>
+        <a href="#json" data-lesson-link>JSON</a>
+        <a href="#dom" data-lesson-link>DOM Manipulation</a>
+        <a href="#queryselector" data-lesson-link>querySelector</a>
+        <a href="#event" data-lesson-link>Event Listener</a>
+        <a href="#timer" data-lesson-link>setTimeout dan setInterval</a>
+        <a href="#try-catch" data-lesson-link>Penanganan Error</a>
+        <a href="#localstorage" data-lesson-link>LocalStorage</a>
+
+    </aside>
+
+
+    <!-- KONTEN MATERI -->
+
+    <main class="lesson-content">
+
+        <section class="welcome">
+
+            <p class="subtitle">WEB DEVELOPMENT COURSE</p>
+
+            <h1>Belajar Pemrograman Web</h1>
+
+            <p>
+                Pelajari HTML, CSS, dan JavaScript dari dasar.
+                Materi disusun secara bertahap agar mudah dipahami
+                oleh pemula.
+            </p>
+
+        </section>
+
+
+        <!-- ============ HTML DASAR ============ -->
+
+        <section id="html" class="lesson">
+
+            <span class="category html-tag">HTML DASAR</span>
+
+            <h2>1. Pengenalan HTML</h2>
+
+            <p>
+                HTML (HyperText Markup Language) adalah bahasa
+                markup yang digunakan untuk membuat struktur
+                sebuah halaman website.
+            </p>
+
+            <h3>Fungsi HTML</h3>
+
+            <ul>
+                <li>Membuat judul dan paragraf.</li>
+                <li>Menampilkan gambar dan video.</li>
+                <li>Membuat tautan (link).</li>
+                <li>Membuat tabel dan formulir.</li>
+                <li>Menyusun struktur halaman website.</li>
+            </ul>
+
+            <h3>Contoh HTML</h3>
+
+            <pre><code>&lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+&lt;p&gt;Saya sedang belajar HTML.&lt;/p&gt;</code></pre>
+
+            <div class="result">
+                <strong>Hasil:</strong>
+                <h1>Halo Dunia!</h1>
+                <p>Saya sedang belajar HTML.</p>
+            </div>
+
+        </section>
+
+
+        <section id="struktur-html" class="lesson">
+
+            <h2>2. Struktur Dasar HTML</h2>
+
+            <p>
+                Setiap dokumen HTML memiliki struktur dasar
+                yang terdiri dari beberapa elemen utama.
+            </p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Website Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Halo Dunia&lt;/h1&gt;
+    &lt;p&gt;Website pertama saya.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Penjelasan</h3>
+
+            <ul>
+                <li><b>DOCTYPE:</b> Menyatakan dokumen menggunakan HTML5.</li>
+                <li><b>html:</b> Elemen utama dokumen HTML.</li>
+                <li><b>head:</b> Menyimpan informasi halaman.</li>
+                <li><b>title:</b> Menentukan judul tab browser.</li>
+                <li><b>body:</b> Menyimpan konten yang ditampilkan.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="elemen-html" class="lesson">
+
+            <h2>3. Tag dan Elemen HTML</h2>
+
+            <p>
+                Tag adalah penanda yang digunakan untuk
+                membentuk elemen HTML.
+            </p>
+
+            <pre><code>&lt;p&gt;Ini sebuah paragraf.&lt;/p&gt;</code></pre>
+
+            <p>
+                Tag pembuka adalah <code>&lt;p&gt;</code>,
+                sedangkan tag penutup adalah
+                <code>&lt;/p&gt;</code>.
+            </p>
+
+            <h3>Contoh tag lainnya</h3>
+
+            <ul>
+                <li><code>&lt;h1&gt;</code> : Judul utama.</li>
+                <li><code>&lt;p&gt;</code> : Paragraf.</li>
+                <li><code>&lt;div&gt;</code> : Container.</li>
+                <li><code>&lt;span&gt;</code> : Elemen inline.</li>
+                <li><code>&lt;br&gt;</code> : Baris baru.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="heading" class="lesson">
+
+            <h2>4. Heading dan Paragraf</h2>
+
+            <p>
+                Heading digunakan untuk membuat judul,
+                sedangkan paragraf digunakan untuk teks.
+            </p>
+
+            <pre><code>&lt;h1&gt;Judul Utama&lt;/h1&gt;
+&lt;h2&gt;Sub Judul&lt;/h2&gt;
+&lt;h3&gt;Judul Bagian&lt;/h3&gt;
+
+&lt;p&gt;Ini adalah sebuah paragraf.&lt;/p&gt;</code></pre>
+
+            <div class="result">
+                <h1>Judul Utama</h1>
+                <h2>Sub Judul</h2>
+                <h3>Judul Bagian</h3>
+                <p>Ini adalah sebuah paragraf.</p>
+            </div>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="teks" class="lesson">
+
+            <h2>5. Elemen Teks</h2>
+
+            <p>
+                Selain paragraf, HTML punya banyak elemen untuk
+                memberi makna dan penekanan pada teks.
+            </p>
+
+            <pre><code>&lt;p&gt;Teks &lt;strong&gt;penting&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Teks &lt;em&gt;miring&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Teks &lt;mark&gt;ditandai&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Teks kecil&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O dan x&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+    Kutipan panjang ditulis di sini.
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+Baris pertama&lt;br&gt;Baris kedua</code></pre>
+
+            <div class="result">
+                <strong>Hasil:</strong>
+                <p>Teks <strong>penting</strong></p>
+                <p>Teks <em>miring</em></p>
+                <p>Teks <mark>ditandai</mark></p>
+                <p><small>Teks kecil</small></p>
+                <p>H<sub>2</sub>O dan x<sup>2</sup></p>
+                <blockquote>Kutipan panjang ditulis di sini.</blockquote>
+                <hr>
+                Baris pertama<br>Baris kedua
+            </div>
+
+            <ul>
+                <li><b>strong:</b> Teks penting (tebal).</li>
+                <li><b>em:</b> Penekanan (miring).</li>
+                <li><b>mark:</b> Menyorot teks.</li>
+                <li><b>hr:</b> Garis pemisah horizontal.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="link-gambar" class="lesson">
+
+            <h2>6. Link dan Gambar</h2>
+
+            <p>
+                Tag anchor digunakan untuk membuat tautan.
+                Tag img digunakan untuk menampilkan gambar.
+            </p>
+
+            <pre><code>&lt;a href="https://google.com"&gt;
+    Buka Google
+&lt;/a&gt;
+
+&lt;img src="gambar.jpg"
+     alt="Gambar contoh"&gt;</code></pre>
+
+            <h3>Atribut penting</h3>
+
+            <ul>
+                <li><b>href:</b> Alamat tujuan tautan.</li>
+                <li><b>src:</b> Lokasi file gambar.</li>
+                <li><b>alt:</b> Teks alternatif gambar.</li>
+            </ul>
+
+            <h3>Membuka link di tab baru</h3>
+
+            <pre><code>&lt;a href="https://google.com"
+   target="_blank"
+   rel="noopener"&gt;
+    Buka di tab baru
+&lt;/a&gt;</code></pre>
+
+        </section>
+
+
+        <section id="list" class="lesson">
+
+            <h2>7. List dan Tabel</h2>
+
+            <p>HTML memiliki dua jenis list yang umum digunakan.</p>
+
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Belajar HTML&lt;/li&gt;
+    &lt;li&gt;Belajar CSS&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <h3>Tabel</h3>
+
+            <p>
+                Untuk tabel, gunakan elemen
+                <code>table</code>, <code>tr</code>,
+                <code>th</code>, dan <code>td</code>.
+                Bagian tabel dapat dikelompokkan dengan
+                <code>thead</code>, <code>tbody</code>, dan
+                <code>tfoot</code>.
+            </p>
+
+            <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Nama&lt;/th&gt;
+            &lt;th&gt;Kelas&lt;/th&gt;
+            &lt;th&gt;Nilai&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Andi&lt;/td&gt;
+            &lt;td&gt;X PPLG&lt;/td&gt;
+            &lt;td&gt;90&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Budi&lt;/td&gt;
+            &lt;td&gt;X PPLG&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+            <div class="result">
+                <strong>Hasil:</strong>
+                <table>
+                    <thead>
+                        <tr><th>Nama</th><th>Kelas</th><th>Nilai</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Andi</td><td>X PPLG</td><td>90</td></tr>
+                        <tr><td>Budi</td><td>X PPLG</td><td>85</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Menggabungkan sel</h3>
+
+            <pre><code>&lt;td colspan="2"&gt;Gabung 2 kolom&lt;/td&gt;
+&lt;td rowspan="2"&gt;Gabung 2 baris&lt;/td&gt;</code></pre>
+
+            <ul>
+                <li><b>colspan:</b> Menggabungkan beberapa kolom.</li>
+                <li><b>rowspan:</b> Menggabungkan beberapa baris.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="atribut" class="lesson">
+
+            <h2>8. Atribut Global</h2>
+
+            <p>
+                Atribut memberi informasi tambahan pada elemen.
+                Atribut global bisa dipakai di hampir semua elemen HTML.
+            </p>
+
+            <pre><code>&lt;p id="intro"
+   class="teks-besar"
+   style="color: blue;"
+   title="Ini tooltip"
+   lang="id"&gt;
+    Halo!
+&lt;/p&gt;
+
+&lt;p hidden&gt;Paragraf ini disembunyikan.&lt;/p&gt;</code></pre>
+
+            <ul>
+                <li><b>id:</b> Nama unik untuk satu elemen.</li>
+                <li><b>class:</b> Nama kelompok, boleh dipakai banyak elemen.</li>
+                <li><b>style:</b> CSS langsung pada elemen (inline).</li>
+                <li><b>title:</b> Teks tooltip saat kursor diarahkan.</li>
+                <li><b>lang:</b> Bahasa konten elemen.</li>
+                <li><b>hidden:</b> Menyembunyikan elemen.</li>
+            </ul>
+
+            <p>
+                Satu halaman tidak boleh punya dua elemen dengan
+                <code>id</code> yang sama.
+            </p>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="block-inline" class="lesson">
+
+            <h2>9. Elemen Block dan Inline</h2>
+
+            <p>
+                Elemen HTML dibagi menjadi dua jenis tampilan dasar.
+            </p>
+
+            <ul>
+                <li>
+                    <b>Block:</b> Selalu mulai di baris baru dan
+                    mengambil lebar penuh. Contoh:
+                    <code>div</code>, <code>p</code>, <code>h1</code>,
+                    <code>ul</code>.
+                </li>
+                <li>
+                    <b>Inline:</b> Tetap satu baris dan hanya
+                    selebar isinya. Contoh: <code>span</code>,
+                    <code>a</code>, <code>strong</code>, <code>img</code>.
+                </li>
+            </ul>
+
+            <pre><code>&lt;div&gt;Block 1&lt;/div&gt;
+&lt;div&gt;Block 2&lt;/div&gt;
+
+&lt;span&gt;Inline 1&lt;/span&gt;
+&lt;span&gt;Inline 2&lt;/span&gt;</code></pre>
+
+            <div class="result">
+                <strong>Hasil:</strong>
+                <div class="kotak-demo">Block 1</div>
+                <div class="kotak-demo">Block 2</div>
+                <span class="kotak-demo">Inline 1</span>
+                <span class="kotak-demo">Inline 2</span>
+            </div>
+
+        </section>
+
+
+        <section id="form" class="lesson">
+
+            <h2>10. Form HTML</h2>
+
+            <p>
+                Form digunakan untuk menerima input
+                atau data dari pengguna.
+            </p>
+
+            <pre><code>&lt;form&gt;
+    &lt;label&gt;Nama:&lt;/label&gt;
+    &lt;input type="text"&gt;
+
+    &lt;button type="submit"&gt;
+        Kirim
+    &lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="input-form" class="lesson">
+
+            <h2>11. Tipe Input Form</h2>
+
+            <p>
+                Elemen <code>input</code> punya banyak tipe
+                sesuai jenis data yang diinginkan.
+            </p>
+
+            <pre><code>&lt;form&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email"
+           placeholder="nama@email.com" required&gt;
+
+    &lt;label for="sandi"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="sandi"&gt;
+
+    &lt;label for="usia"&gt;Usia:&lt;/label&gt;
+    &lt;input type="number" id="usia" min="1" max="100"&gt;
+
+    &lt;label&gt;
+        &lt;input type="checkbox"&gt; Saya setuju
+    &lt;/label&gt;
+
+    &lt;label&gt;&lt;input type="radio" name="jk" value="L"&gt; Laki-laki&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="jk" value="P"&gt; Perempuan&lt;/label&gt;
+
+    &lt;select&gt;
+        &lt;option&gt;Pilih kelas&lt;/option&gt;
+        &lt;option&gt;X&lt;/option&gt;
+        &lt;option&gt;XI&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;textarea rows="4" placeholder="Pesan"&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;Kirim&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <h3>Atribut penting pada input</h3>
+
+            <ul>
+                <li><b>placeholder:</b> Teks petunjuk di dalam input.</li>
+                <li><b>required:</b> Input wajib diisi.</li>
+                <li><b>min / max:</b> Batas nilai angka.</li>
+                <li><b>name:</b> Nama data saat form dikirim. Radio dengan <code>name</code> sama menjadi satu grup.</li>
+                <li><b>for pada label:</b> Dihubungkan ke <code>id</code> input agar label bisa diklik.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="semantic" class="lesson">
+
+            <h2>12. Semantic HTML</h2>
+
+            <p>
+                Semantic HTML adalah penggunaan elemen HTML
+                yang memiliki arti atau fungsi khusus.
+            </p>
+
+            <pre><code>&lt;header&gt;Bagian atas&lt;/header&gt;
+&lt;nav&gt;Navigasi&lt;/nav&gt;
+&lt;main&gt;
+    &lt;article&gt;Konten utama&lt;/article&gt;
+    &lt;aside&gt;Informasi tambahan&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Bagian bawah&lt;/footer&gt;</code></pre>
+
+            <p>
+                Semantic HTML membantu browser dan teknologi
+                pembaca layar memahami struktur halaman.
+            </p>
+
+        </section>
+
+
+        <section id="media" class="lesson">
+
+            <h2>13. Audio dan Video</h2>
+
+            <p>
+                HTML menyediakan elemen audio dan video
+                untuk menampilkan media.
+            </p>
+
+            <pre><code>&lt;audio controls&gt;
+    &lt;source src="musik.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;video controls width="400"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+
+        </section>
+
+
+        <section id="iframe" class="lesson">
+
+            <h2>14. Iframe</h2>
+
+            <p>
+                Iframe digunakan untuk menyematkan halaman
+                atau konten dari sumber lain.
+            </p>
+
+            <pre><code>&lt;iframe
+    src="https://example.com"
+    width="400"
+    height="250"
+    title="Contoh halaman"&gt;
+&lt;/iframe&gt;</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="entity" class="lesson">
+
+            <h2>15. Entity dan Komentar</h2>
+
+            <p>
+                Karakter seperti <code>&lt;</code> dan <code>&gt;</code>
+                dipakai oleh HTML sendiri. Untuk menampilkannya sebagai
+                teks biasa, gunakan HTML entity.
+            </p>
+
+            <pre><code>&amp;lt;   → &lt;
+&amp;gt;   → &gt;
+&amp;amp;  → &amp;
+&amp;copy; → ©
+&amp;nbsp; → spasi yang tidak terputus</code></pre>
+
+            <h3>Komentar</h3>
+
+            <p>
+                Komentar tidak ditampilkan di halaman, hanya
+                catatan untuk pembuat kode.
+            </p>
+
+            <pre><code>&lt;!-- Ini komentar, tidak tampil di browser --&gt;
+&lt;p&gt;Teks ini tampil.&lt;/p&gt;</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="meta" class="lesson">
+
+            <h2>16. Meta Tag dan Favicon</h2>
+
+            <p>
+                Meta tag berada di dalam <code>head</code> dan
+                menyimpan informasi tentang halaman.
+            </p>
+
+            <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description"
+          content="Belajar HTML, CSS, dan JavaScript"&gt;
+    &lt;link rel="icon" href="favicon.ico"&gt;
+    &lt;title&gt;Judul Halaman&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+
+            <ul>
+                <li><b>charset:</b> Pengodean karakter (UTF-8 mendukung semua huruf).</li>
+                <li><b>viewport:</b> Agar tampilan pas di layar HP.</li>
+                <li><b>description:</b> Ringkasan halaman untuk mesin pencari.</li>
+                <li><b>favicon:</b> Ikon kecil di tab browser.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="link-css-js" class="lesson">
+
+            <h2>17. Menghubungkan CSS dan JavaScript</h2>
+
+            <p>
+                Ada tiga cara menambahkan CSS, dan dua cara
+                menambahkan JavaScript ke HTML.
+            </p>
+
+            <pre><code>&lt;!-- CSS eksternal (disarankan) --&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;!-- CSS internal --&gt;
+&lt;style&gt;
+    p { color: blue; }
+&lt;/style&gt;
+
+&lt;!-- CSS inline --&gt;
+&lt;p style="color: blue;"&gt;Teks&lt;/p&gt;
+
+&lt;!-- JavaScript eksternal, di akhir body --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;
+
+&lt;!-- JavaScript internal --&gt;
+&lt;script&gt;
+    console.log("Halo!");
+&lt;/script&gt;</code></pre>
+
+            <p>
+                Letakkan <code>script</code> di akhir <code>body</code>
+                (atau tambahkan atribut <code>defer</code>) agar elemen
+                HTML sudah termuat sebelum JavaScript dijalankan.
+            </p>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="path" class="lesson">
+
+            <h2>18. Path File</h2>
+
+            <p>
+                Path adalah alamat lokasi file, dipakai pada
+                <code>href</code> dan <code>src</code>.
+            </p>
+
+            <pre><code>&lt;!-- file di folder yang sama --&gt;
+&lt;img src="foto.jpg"&gt;
+
+&lt;!-- file di dalam subfolder --&gt;
+&lt;img src="gambar/foto.jpg"&gt;
+
+&lt;!-- naik satu folder ke atas --&gt;
+&lt;img src="../foto.jpg"&gt;
+
+&lt;!-- alamat lengkap (absolut) --&gt;
+&lt;img src="https://contoh.com/foto.jpg"&gt;</code></pre>
+
+            <ul>
+                <li><b>Relatif:</b> Dihitung dari lokasi file HTML saat ini.</li>
+                <li><b>Absolut:</b> Alamat lengkap, termasuk domain.</li>
+                <li><b>../</b> artinya naik satu folder.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- ============ CSS DASAR ============ -->
+
+        <section id="css" class="lesson">
+
+            <span class="category css-tag">CSS DASAR</span>
+
+            <h2>19. Pengenalan CSS</h2>
+
+            <p>
+                CSS (Cascading Style Sheets) digunakan untuk
+                mengatur tampilan dan desain halaman website.
+            </p>
+
+            <h3>Fungsi CSS</h3>
+
+            <ul>
+                <li>Mengatur warna teks dan background.</li>
+                <li>Mengatur ukuran elemen.</li>
+                <li>Mengatur jarak antar elemen.</li>
+                <li>Membuat layout website.</li>
+                <li>Membuat animasi dan responsivitas.</li>
+            </ul>
+
+            <pre><code>h1 {
+    color: blue;
+    font-size: 30px;
+}</code></pre>
+
+        </section>
+
+
+        <section id="selector" class="lesson">
+
+            <h2>20. CSS Selector</h2>
+
+            <p>
+                Selector menentukan elemen HTML yang
+                akan diberikan style.
+            </p>
+
+            <pre><code>/* Element selector */
+p {
+    color: red;
+}
+
+/* Class selector */
+.judul {
+    color: blue;
+}
+
+/* ID selector */
+#utama {
+    background: yellow;
+}
+
+/* Grouping selector */
+h1, h2, h3 {
+    font-family: Arial;
+}
+
+/* Descendant selector */
+nav a {
+    color: white;
+}</code></pre>
+
+        </section>
+
+
+        <section id="warna" class="lesson">
+
+            <h2>21. Color dan Background</h2>
+
+            <pre><code>body {
+    background-color: #f1f5f9;
+}
+
+h1 {
+    color: #2563eb;
+}
+
+.kotak {
+    background-color: rgb(37, 99, 235);
+    color: rgba(255, 255, 255, 0.9);
+}</code></pre>
+
+            <p>
+                CSS mendukung warna dengan nama,
+                HEX, RGB, dan format warna lainnya.
+            </p>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="tipografi" class="lesson">
+
+            <h2>22. Tipografi</h2>
+
+            <p>
+                Tipografi mengatur tampilan teks seperti jenis huruf,
+                ukuran, dan jarak.
+            </p>
+
+            <pre><code>p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+}</code></pre>
+
+            <ul>
+                <li><b>font-family:</b> Jenis huruf, tulis beberapa sebagai cadangan.</li>
+                <li><b>font-size:</b> Ukuran huruf.</li>
+                <li><b>font-weight:</b> Ketebalan huruf.</li>
+                <li><b>line-height:</b> Tinggi baris, memudahkan membaca.</li>
+                <li><b>text-align:</b> Rata teks (<code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code>).</li>
+                <li><b>text-transform:</b> Mengubah huruf besar atau kecil.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="satuan" class="lesson">
+
+            <h2>23. Satuan CSS</h2>
+
+            <p>
+                Nilai ukuran di CSS memakai satuan. Ada satuan
+                tetap dan satuan relatif.
+            </p>
+
+            <pre><code>.contoh {
+    width: 300px;      /* piksel, ukuran tetap */
+    font-size: 1.2rem; /* relatif ke ukuran font root */
+    padding: 2em;      /* relatif ke font elemen itu */
+    height: 50vh;      /* 50% tinggi layar */
+    max-width: 80%;    /* persen dari elemen induk */
+}</code></pre>
+
+            <ul>
+                <li><b>px:</b> Piksel, ukuran tetap.</li>
+                <li><b>%:</b> Persen dari ukuran elemen induk.</li>
+                <li><b>em:</b> Relatif ke ukuran font elemen.</li>
+                <li><b>rem:</b> Relatif ke ukuran font elemen <code>html</code>.</li>
+                <li><b>vw / vh:</b> 1% lebar / tinggi layar.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="box-model" class="lesson">
+
+            <h2>24. CSS Box Model</h2>
+
+            <p>
+                Box Model menjelaskan bagaimana ukuran
+                dan jarak sebuah elemen dihitung.
+            </p>
+
+            <ul>
+                <li><b>Content:</b> Isi elemen.</li>
+                <li><b>Padding:</b> Jarak isi ke border.</li>
+                <li><b>Border:</b> Garis tepi elemen.</li>
+                <li><b>Margin:</b> Jarak luar elemen.</li>
+            </ul>
+
+            <pre><code>.kotak {
+    width: 200px;
+    padding: 20px;
+    border: 2px solid blue;
+    margin: 15px;
+}
+
+/* Agar padding dan border tidak menambah lebar */
+* {
+    box-sizing: border-box;
+}</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="display" class="lesson">
+
+            <h2>25. CSS Display</h2>
+
+            <p>
+                Properti <code>display</code> menentukan bagaimana
+                sebuah elemen ditampilkan.
+            </p>
+
+            <pre><code>.a { display: block; }        /* satu baris penuh */
+.b { display: inline; }       /* mengalir bersama teks */
+.c { display: inline-block; } /* sejajar, tapi bisa diatur ukurannya */
+.d { display: none; }         /* disembunyikan sepenuhnya */
+.e { display: flex; }         /* layout fleksibel */
+.f { display: grid; }         /* layout grid */</code></pre>
+
+            <p>
+                <code>display: none</code> menghilangkan elemen
+                dari tata letak, sedangkan
+                <code>visibility: hidden</code> hanya menyembunyikan
+                tampilan tetapi ruangnya tetap ada.
+            </p>
+
+        </section>
+
+
+        <section id="flexbox" class="lesson">
+
+            <h2>26. Flexbox</h2>
+
+            <p>
+                Flexbox digunakan untuk mengatur posisi
+                dan susunan elemen dalam sebuah container.
+            </p>
+
+            <pre><code>.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}</code></pre>
+
+            <ul>
+                <li><b>flex-direction:</b> Arah susunan (<code>row</code> atau <code>column</code>).</li>
+                <li><b>justify-content:</b> Perataan di sumbu utama.</li>
+                <li><b>align-items:</b> Perataan di sumbu silang.</li>
+                <li><b>flex-wrap:</b> Boleh turun baris atau tidak.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="grid" class="lesson">
+
+            <h2>27. CSS Grid</h2>
+
+            <p>
+                CSS Grid digunakan untuk membuat tata letak
+                berbasis baris dan kolom.
+            </p>
+
+            <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}</code></pre>
+
+        </section>
+
+
+        <section id="position" class="lesson">
+
+            <h2>28. CSS Position</h2>
+
+            <p>
+                Position mengatur posisi suatu elemen
+                dalam halaman website.
+            </p>
+
+            <pre><code>.box {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}</code></pre>
+
+            <ul>
+                <li><b>static:</b> Posisi normal (bawaan).</li>
+                <li><b>relative:</b> Bergeser dari posisi normalnya.</li>
+                <li><b>absolute:</b> Diposisikan terhadap induk yang punya <code>position</code>.</li>
+                <li><b>fixed:</b> Menempel pada layar.</li>
+                <li><b>sticky:</b> Menempel saat di-scroll sampai batas tertentu.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="zindex" class="lesson">
+
+            <h2>29. Z-index dan Overflow</h2>
+
+            <p>
+                <code>z-index</code> mengatur elemen mana yang berada
+                di depan saat saling menumpuk. Angka lebih besar berada
+                lebih depan, dan hanya berfungsi pada elemen yang punya
+                <code>position</code> selain <code>static</code>.
+            </p>
+
+            <pre><code>.depan {
+    position: absolute;
+    z-index: 10;
+}
+
+.belakang {
+    position: absolute;
+    z-index: 1;
+}</code></pre>
+
+            <h3>Overflow</h3>
+
+            <p>
+                <code>overflow</code> mengatur isi yang melebihi
+                ukuran elemennya.
+            </p>
+
+            <pre><code>.kotak {
+    width: 200px;
+    height: 100px;
+    overflow: auto; /* visible | hidden | scroll | auto */
+}</code></pre>
+
+            <ul>
+                <li><b>visible:</b> Isi meluber keluar (bawaan).</li>
+                <li><b>hidden:</b> Isi yang berlebih dipotong.</li>
+                <li><b>scroll:</b> Selalu ada scrollbar.</li>
+                <li><b>auto:</b> Scrollbar muncul saat dibutuhkan.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="responsive" class="lesson">
+
+            <h2>30. Responsive Design</h2>
+
+            <p>
+                Responsive Design membuat website dapat
+                menyesuaikan ukuran layar perangkat.
+            </p>
+
+            <pre><code>@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+
+            <p>
+                Pastikan meta viewport sudah ada di
+                <code>head</code> agar media query bekerja di HP.
+            </p>
+
+        </section>
+
+
+        <section id="pseudo" class="lesson">
+
+            <h2>31. Pseudo-class dan Pseudo-element</h2>
+
+            <p>
+                Pseudo-class memilih elemen berdasarkan
+                keadaan tertentu. Pseudo-element menargetkan
+                bagian tertentu dari elemen.
+            </p>
+
+            <pre><code>button:hover {
+    background: blue;
+}
+
+p::first-letter {
+    font-size: 30px;
+}
+
+p::selection {
+    background: yellow;
+}</code></pre>
+
+        </section>
+
+
+        <section id="animation" class="lesson">
+
+            <h2>32. Transition dan Animation</h2>
+
+            <p>
+                Transition membuat perubahan style lebih halus.
+                Animation memungkinkan gerakan yang lebih kompleks.
+            </p>
+
+            <pre><code>.box {
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+}
+
+@keyframes bergerak {
+    from { transform: translateX(0); }
+    to { transform: translateX(100px); }
+}
+
+.bola {
+    animation: bergerak 2s infinite alternate;
+}</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="css-variable" class="lesson">
+
+            <h2>33. CSS Variable</h2>
+
+            <p>
+                CSS Variable menyimpan nilai yang bisa dipakai
+                berulang kali. Cukup ubah di satu tempat, semua
+                pemakaiannya ikut berubah.
+            </p>
+
+            <pre><code>:root {
+    --warna-utama: #2563eb;
+    --jarak: 16px;
+}
+
+button {
+    background: var(--warna-utama);
+    padding: var(--jarak);
+}
+
+h1 {
+    color: var(--warna-utama);
+}</code></pre>
+
+            <ul>
+                <li>Nama variabel diawali dua tanda hubung (<code>--</code>).</li>
+                <li><code>:root</code> membuat variabel bisa dipakai di seluruh halaman.</li>
+                <li>Dipanggil dengan fungsi <code>var()</code>.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- ============ JAVASCRIPT DASAR ============ -->
+
+        <section id="javascript" class="lesson">
+
+            <span class="category js-tag">JAVASCRIPT DASAR</span>
+
+            <h2>34. Pengenalan JavaScript</h2>
+
+            <p>
+                JavaScript adalah bahasa pemrograman
+                yang membuat website menjadi interaktif.
+            </p>
+
+            <h3>Fungsi JavaScript</h3>
+
+            <ul>
+                <li>Membuat tombol interaktif.</li>
+                <li>Mengolah data pengguna.</li>
+                <li>Membuat validasi form.</li>
+                <li>Mengubah konten HTML.</li>
+                <li>Membuat aplikasi web.</li>
+            </ul>
+
+            <pre><code>alert("Halo WebLearn!");</code></pre>
+
+        </section>
+
+
+        <section id="variabel" class="lesson">
+
+            <h2>35. Variabel</h2>
+
+            <p>
+                Variabel digunakan untuk menyimpan data
+                yang dapat digunakan dalam program.
+            </p>
+
+            <pre><code>let nama = "Budi";
+const umur = 17;
+var kelas = "PPLG";
+
+console.log(nama);</code></pre>
+
+            <ul>
+                <li><b>let:</b> Variabel yang nilainya bisa diubah.</li>
+                <li><b>const:</b> Variabel yang tidak bisa di-assign ulang.</li>
+                <li><b>var:</b> Cara deklarasi variabel lama.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="tipe-data" class="lesson">
+
+            <h2>36. Tipe Data</h2>
+
+            <pre><code>let nama = "Andi"; // String
+let umur = 17; // Number
+let aktif = true; // Boolean
+let nilai = null; // Null
+let kosong; // Undefined
+
+console.log(typeof nama); // "string"</code></pre>
+
+        </section>
+
+
+        <section id="operator" class="lesson">
+
+            <h2>37. Operator</h2>
+
+            <p>
+                Operator digunakan untuk melakukan operasi
+                terhadap data.
+            </p>
+
+            <pre><code>let a = 10;
+let b = 5;
+
+console.log(a + b);   // 15
+console.log(a &gt; b);   // true
+console.log(a === b); // false
+
+// Operator logika
+console.log(a &gt; 5 &amp;&amp; b &lt; 10); // true (dan)
+console.log(a &lt; 5 || b &lt; 10); // true (atau)
+console.log(!true);           // false (bukan)</code></pre>
+
+            <p>
+                Gunakan <code>===</code> (sama persis, termasuk tipe data)
+                daripada <code>==</code>.
+            </p>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="template-literal" class="lesson">
+
+            <h2>38. Template Literal</h2>
+
+            <p>
+                Template literal memakai tanda backtick
+                (<code>`</code>) sehingga variabel dapat disisipkan
+                langsung ke dalam teks dengan <code>${}</code>.
+            </p>
+
+            <pre><code>let nama = "Andi";
+let umur = 17;
+
+// Cara lama
+console.log("Nama: " + nama + ", umur: " + umur);
+
+// Template literal
+console.log(`Nama: ${nama}, umur: ${umur}`);
+console.log(`Tahun depan: ${umur + 1}`);</code></pre>
+
+            <p>
+                Template literal juga mendukung teks yang
+                terdiri dari beberapa baris.
+            </p>
+
+        </section>
+
+
+        <section id="condition" class="lesson">
+
+            <h2>39. Conditional</h2>
+
+            <p>
+                Conditional digunakan untuk menjalankan
+                kode berdasarkan kondisi tertentu.
+            </p>
+
+            <pre><code>let nilai = 85;
+
+if (nilai &gt;= 90) {
+    console.log("Sangat baik");
+} else if (nilai &gt;= 75) {
+    console.log("Lulus");
+} else {
+    console.log("Tidak lulus");
+}</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="switch" class="lesson">
+
+            <h2>40. Switch</h2>
+
+            <p>
+                <code>switch</code> membandingkan satu nilai dengan
+                beberapa kemungkinan, lebih rapi daripada banyak
+                <code>else if</code>.
+            </p>
+
+            <pre><code>let hari = 3;
+
+switch (hari) {
+    case 1:
+        console.log("Senin");
+        break;
+    case 2:
+        console.log("Selasa");
+        break;
+    case 3:
+        console.log("Rabu");
+        break;
+    default:
+        console.log("Hari lain");
+}</code></pre>
+
+            <p>
+                Jangan lupa <code>break</code>, kalau tidak, kode
+                di <code>case</code> berikutnya ikut berjalan.
+            </p>
+
+        </section>
+
+
+        <section id="loop" class="lesson">
+
+            <h2>41. Looping</h2>
+
+            <p>
+                Looping digunakan untuk menjalankan
+                kode secara berulang.
+            </p>
+
+            <pre><code>for (let i = 1; i &lt;= 5; i++) {
+    console.log(i);
+}
+
+// Looping pada array
+let buah = ["Apel", "Jeruk"];
+
+for (let item of buah) {
+    console.log(item);
+}</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="while" class="lesson">
+
+            <h2>42. While dan Do While</h2>
+
+            <p>
+                <code>while</code> mengulang kode selama kondisinya
+                benar. Cocok saat jumlah pengulangan tidak diketahui
+                di awal.
+            </p>
+
+            <pre><code>let i = 1;
+
+while (i &lt;= 5) {
+    console.log(i);
+    i++;
+}
+
+// do...while: dijalankan minimal satu kali
+let j = 10;
+
+do {
+    console.log(j);
+    j++;
+} while (j &lt; 5);</code></pre>
+
+            <ul>
+                <li><b>break:</b> Menghentikan perulangan.</li>
+                <li><b>continue:</b> Melewati satu putaran.</li>
+            </ul>
+
+            <p>
+                Pastikan kondisi akhirnya akan tercapai, kalau tidak
+                terjadi perulangan tanpa akhir (infinite loop).
+            </p>
+
+        </section>
+
+
+        <section id="function" class="lesson">
+
+            <h2>43. Function</h2>
+
+            <p>
+                Function adalah blok kode yang dapat
+                dipanggil untuk menjalankan tugas tertentu.
+            </p>
+
+            <pre><code>function sapa() {
+    console.log("Halo!");
+}
+
+sapa();
+
+// Dengan parameter dan nilai kembalian
+function tambah(a, b) {
+    return a + b;
+}
+
+console.log(tambah(2, 3)); // 5</code></pre>
+
+        </section>
+
+
+        <section id="arrow" class="lesson">
+
+            <h2>44. Arrow Function</h2>
+
+            <p>
+                Arrow Function adalah cara penulisan
+                function menggunakan tanda panah.
+            </p>
+
+            <pre><code>const sapa = () =&gt; {
+    console.log("Halo WebLearn!");
+};
+
+sapa();
+
+// Versi singkat
+const kali = (a, b) =&gt; a * b;
+
+console.log(kali(3, 4)); // 12</code></pre>
+
+        </section>
+
+
+        <section id="array" class="lesson">
+
+            <h2>45. Array</h2>
+
+            <p>
+                Array digunakan untuk menyimpan beberapa
+                nilai dalam satu variabel.
+            </p>
+
+            <pre><code>let buah = ["Apel", "Jeruk", "Mangga"];
+
+console.log(buah[0]);       // "Apel"
+console.log(buah.length);   // 3
+
+buah.push("Pisang");        // tambah di akhir
+buah.pop();                 // hapus dari akhir</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="array-method" class="lesson">
+
+            <h2>46. Method Array</h2>
+
+            <p>
+                Array punya banyak method untuk mengolah data
+                dengan singkat.
+            </p>
+
+            <pre><code>let angka = [1, 2, 3, 4, 5];
+
+// forEach: menjalankan sesuatu untuk tiap item
+angka.forEach((n) =&gt; console.log(n));
+
+// map: membuat array baru hasil transformasi
+let kali2 = angka.map((n) =&gt; n * 2);
+console.log(kali2); // [2, 4, 6, 8, 10]
+
+// filter: menyaring item sesuai kondisi
+let genap = angka.filter((n) =&gt; n % 2 === 0);
+console.log(genap); // [2, 4]
+
+// find: mencari item pertama yang cocok
+let lebihDari3 = angka.find((n) =&gt; n &gt; 3);
+console.log(lebihDari3); // 4
+
+// includes: mengecek apakah ada
+console.log(angka.includes(3)); // true</code></pre>
+
+            <ul>
+                <li><b>forEach:</b> Menjalankan fungsi untuk tiap item.</li>
+                <li><b>map:</b> Mengubah tiap item, hasilnya array baru.</li>
+                <li><b>filter:</b> Mengambil item yang memenuhi kondisi.</li>
+                <li><b>find:</b> Mengambil item pertama yang cocok.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="object" class="lesson">
+
+            <h2>47. Object</h2>
+
+            <p>
+                Object menyimpan data dalam bentuk
+                pasangan property dan value.
+            </p>
+
+            <pre><code>let siswa = {
+    nama: "Andi",
+    kelas: "PPLG",
+    umur: 17
+};
+
+console.log(siswa.nama);
+siswa.umur = 18;
+siswa.hobi = "Coding"; // tambah property baru</code></pre>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="json" class="lesson">
+
+            <h2>48. JSON</h2>
+
+            <p>
+                JSON adalah format teks untuk menyimpan dan
+                menukar data. Bentuknya mirip object JavaScript, tapi
+                kunci dan teksnya wajib memakai tanda kutip ganda.
+            </p>
+
+            <pre><code>let siswa = { nama: "Andi", umur: 17 };
+
+// Object → teks JSON
+let teks = JSON.stringify(siswa);
+console.log(teks); // {"nama":"Andi","umur":17}
+
+// Teks JSON → object
+let obj = JSON.parse(teks);
+console.log(obj.nama); // "Andi"</code></pre>
+
+            <p>
+                JSON sering dipakai untuk menyimpan data di
+                LocalStorage dan menerima data dari server.
+            </p>
+
+        </section>
+
+
+        <section id="dom" class="lesson">
+
+            <h2>49. DOM Manipulation</h2>
+
+            <p>
+                DOM memungkinkan JavaScript mengakses
+                dan mengubah elemen HTML.
+            </p>
+
+            <pre><code>document.getElementById("judul")
+    .textContent = "Halo WebLearn!";</code></pre>
+
+            <!-- CONTOH PRAKTIK DOM -->
+
+            <div class="result">
+                <h3>Contoh Praktik DOM</h3>
+
+                <h1 id="judul">WebLearn</h1>
+
+                <button id="ubah" type="button">
+                    Ubah Judul
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="queryselector" class="lesson">
+
+            <h2>50. querySelector</h2>
+
+            <p>
+                <code>querySelector</code> memilih elemen memakai
+                selector CSS, jadi lebih fleksibel daripada
+                <code>getElementById</code>.
+            </p>
+
+            <pre><code>// Elemen pertama yang cocok
+let judul = document.querySelector("h1");
+let tombol = document.querySelector("#tombol");
+let kartu = document.querySelector(".kartu");
+
+// Semua elemen yang cocok
+let semuaItem = document.querySelectorAll("li");
+
+semuaItem.forEach((item) =&gt; {
+    item.style.color = "blue";
+});
+
+// Mengubah isi dan class
+judul.textContent = "Judul Baru";
+judul.classList.add("aktif");
+judul.classList.toggle("gelap");</code></pre>
+
+            <ul>
+                <li><b>querySelector:</b> Mengambil satu elemen pertama.</li>
+                <li><b>querySelectorAll:</b> Mengambil semua elemen yang cocok.</li>
+                <li><b>classList:</b> Menambah, menghapus, atau menukar class.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="event" class="lesson">
+
+            <h2>51. Event Listener</h2>
+
+            <p>
+                Event Listener digunakan untuk mendeteksi
+                tindakan pengguna seperti klik tombol.
+            </p>
+
+            <pre><code>let tombol = document.getElementById("tombol");
+
+tombol.addEventListener("click", function() {
+    alert("Tombol diklik!");
+});</code></pre>
+
+            <!-- CONTOH PRAKTIK EVENT -->
+
+            <div class="result">
+                <h3>Contoh Praktik Event</h3>
+
+                <button id="tombol" type="button">
+                    Klik Saya
+                </button>
+
+                <p id="hasil-event"></p>
+            </div>
+
+            <p>
+                Event lain yang umum: <code>dblclick</code>,
+                <code>mouseover</code>, <code>keydown</code>,
+                <code>input</code>, dan <code>submit</code>.
+            </p>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="timer" class="lesson">
+
+            <h2>52. setTimeout dan setInterval</h2>
+
+            <p>
+                Kedua fungsi ini menjalankan kode setelah jeda waktu
+                tertentu (dalam milidetik; 1000 ms = 1 detik).
+            </p>
+
+            <pre><code>// Dijalankan sekali setelah 2 detik
+setTimeout(() =&gt; {
+    console.log("2 detik berlalu");
+}, 2000);
+
+// Dijalankan berulang tiap 1 detik
+let hitung = 0;
+
+let timer = setInterval(() =&gt; {
+    hitung++;
+    console.log(hitung);
+
+    if (hitung === 5) {
+        clearInterval(timer); // hentikan
+    }
+}, 1000);</code></pre>
+
+            <ul>
+                <li><b>setTimeout:</b> Menunda, berjalan satu kali.</li>
+                <li><b>setInterval:</b> Mengulang terus sampai dihentikan.</li>
+                <li><b>clearTimeout / clearInterval:</b> Menghentikannya.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- BARU -->
+        <section id="try-catch" class="lesson">
+
+            <h2>53. Penanganan Error</h2>
+
+            <p>
+                <code>try...catch</code> menangkap error agar program
+                tidak langsung berhenti.
+            </p>
+
+            <pre><code>try {
+    let data = JSON.parse("teks yang bukan JSON");
+    console.log(data);
+} catch (error) {
+    console.log("Terjadi error:", error.message);
+} finally {
+    console.log("Selalu dijalankan");
+}
+
+// Membuat error sendiri
+function bagi(a, b) {
+    if (b === 0) {
+        throw new Error("Tidak bisa dibagi nol");
+    }
+    return a / b;
+}</code></pre>
+
+            <ul>
+                <li><b>try:</b> Kode yang mungkin error.</li>
+                <li><b>catch:</b> Dijalankan jika terjadi error.</li>
+                <li><b>finally:</b> Selalu dijalankan, ada error atau tidak.</li>
+                <li><b>throw:</b> Membuat error secara manual.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="localstorage" class="lesson">
+
+            <h2>54. LocalStorage</h2>
+
+            <p>
+                LocalStorage digunakan untuk menyimpan data
+                sederhana di browser agar tetap tersedia
+                setelah halaman dimuat ulang.
+            </p>
+
+            <pre><code>localStorage.setItem("nama", "Andi");
+
+let nama = localStorage.getItem("nama");
+
+console.log(nama);
+
+localStorage.removeItem("nama");
+
+// Menyimpan object memakai JSON
+let siswa = { nama: "Andi", umur: 17 };
+localStorage.setItem("siswa", JSON.stringify(siswa));
+
+let data = JSON.parse(localStorage.getItem("siswa"));</code></pre>
+
+            <p>
+                LocalStorage hanya bisa menyimpan teks, jadi
+                object dan array harus diubah dulu dengan
+                <code>JSON.stringify</code>.
+            </p>
+
+        </section>
+
+
+        <!-- NAVIGASI MATERI -->
+
+        <div class="lesson-navigation">
+
+            <a href="#home"
+               class="btn"
+               data-page-link="home">
+                ← Beranda
+            </a>
+
+            <a href="#editor"
+               class="btn"
+               data-page-link="editor">
+                Coba Code Editor →
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ================= HALAMAN CODE EDITOR ================= -->
+
+<main id="page-editor" class="page editor-page">
+
+    <div class="editor-heading">
+
+        <div>
+            <p class="subtitle">PRAKTIK PEMROGRAMAN WEB</p>
+
+            <h1>Code Playground</h1>
+
+            <p>
+                Tulis kode dan lihat hasilnya secara langsung.
+            </p>
+
+            <!-- STATUS EDITOR -->
+
+            <p id="saveStatus" class="save-status">
+                Semua editor siap
+            </p>
+        </div>
+
+        <div class="editor-actions">
+
+            <button id="resetBtn" class="reset-btn" type="button">
+                Reset
+            </button>
+
+            <button id="runBtn" class="run-btn" type="button">
+                ▶ Run Code
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CODE EDITORS -->
+
+    <section class="workspace">
+
+        <div class="editor-panel">
+
+            <div class="panel-header html-header">
+                <span>HTML</span>
+                <span>.html</span>
+            </div>
+
+            <textarea
+                id="htmlCode"
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off"
+            ></textarea>
+
+        </div>
+
+
+        <div class="editor-panel">
+
+            <div class="panel-header css-header">
+                <span>CSS</span>
+                <span>.css</span>
+            </div>
+
+            <textarea
+                id="cssCode"
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off"
+            ></textarea>
+
+        </div>
+
+
+        <div class="editor-panel">
+
+            <div class="panel-header js-header">
+                <span>JavaScript</span>
+                <span>.js</span>
+            </div>
+
+            <textarea
+                id="jsCode"
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off"
+            ></textarea>
+
+        </div>
+
+    </section>
+
+
+    <!-- PREVIEW -->
+
+    <section class="preview-section">
+
+        <div class="preview-header">
+            <h2>Live Preview</h2>
+            <span>Browser Preview</span>
+        </div>
+
+        <iframe
+            id="preview"
+            title="Hasil kode website"
+            sandbox="allow-scripts"
+        ></iframe>
+
+    </section>
+
+
+    <!-- CONSOLE -->
+
+    <section class="console-section">
+
+        <div class="console-header">
+
+            <h2>Console</h2>
+
+            <button id="clearConsole" type="button">
+                Clear
+            </button>
+
+        </div>
+
+        <div id="consoleOutput">
+            <p class="console-empty">
+                Console siap digunakan...
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 WebLearn. Belajar Coding dari Nol.</p>
+</footer>
+
+
+<!-- ================= CODEMIRROR JAVASCRIPT ================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+<!-- Language Modes -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+
+<!-- Editor Addons -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+
+<!-- WebLearn Main Script -->
+
+<script src="script.js"></script>
+
+<!-- Demo tombol pada materi Event Listener -->
+<script>
+    (function () {
+        var tombol = document.getElementById("tombol");
+        var hasil = document.getElementById("hasil-event");
+        var jumlah = 0;
+
+        if (tombol && hasil) {
+            tombol.addEventListener("click", function () {
+                jumlah++;
+                hasil.textContent = "Tombol sudah diklik " + jumlah + " kali.";
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
